@@ -1,0 +1,16 @@
+name: run-tests
+on: push
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: ./.github/workflows/setup-node
+
+      - name: Test
+        run: npm run test-coverage
