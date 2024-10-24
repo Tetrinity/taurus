@@ -1,7 +1,13 @@
 'use client'
 
+import Link from "next/link";
+
 export default function TestPage() {
     return (
-        <span>test page</span>
+        <div>
+            <p>test page</p>
+            <Link href="/">Go to home</Link>
+            <Link href="..">Go up level</Link>
+        </div>
     );
 }
