@@ -2,6 +2,9 @@
   "name": "taurus",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "^18.18.0 || ^20.9.0 || >=21.1.0"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -13,7 +16,8 @@
   "dependencies": {
     "next": "15.0.1",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "usehooks-ts": "3.1.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^6.6.2",

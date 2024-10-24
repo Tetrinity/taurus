@@ -1,7 +1,20 @@
+'use client'
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useMediaQuery } from "usehooks-ts";
 
 export default function Home() {
+    const isMobile = useMediaQuery("(max-width: 700px)");
+
+    if (isMobile) {
+        return (
+            <div className={styles.page}>
+                Mobile UI coming later. Try on desktop for now!
+            </div>
+        );
+    }
+
     return (
         <div className={styles.page}>
             <main className={styles.main}>
