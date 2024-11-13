@@ -1,6 +1,5 @@
 import { beforeEach, describe, test, expect } from "vitest";
-import ECS, { Component, Entity, System } from "./ecs.ts";
-import { ComponentType } from "react";
+import ECS, { Component, ComponentType, Entity, System } from "./ecs.ts";
 
 describe('ECS', () => {
     let ecs: ECS;

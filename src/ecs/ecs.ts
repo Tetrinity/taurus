@@ -9,7 +9,7 @@ export abstract class Component {}
 // helper type to allow calling (e.g.) get(Position) to return a Position instance
 type ComponentClass<T extends Component> = new (...args: Array<any>) => T
 // a more generic version of the above, used when we have multiple components
-type ComponentType = Function;
+export type ComponentType = Function;
 
 // System - each frame, updates entities with the required components
 export abstract class System {
@@ -56,6 +56,8 @@ class ECS {
     private entities = new Map<Entity, ComponentContainer>();
     private systems = new Map<System, Set<Entity>>();
     private systemOrder = new Array<System>();
+
+    public static TARGET_UPDATES_PER_SECOND = 30;
 
     // entities are deleted at the end of the update loop to keep things consistent throughout the frame
     private entitiesMarkedForDeletion = new Set<Entity>();
@@ -138,7 +140,7 @@ class ECS {
     }
 
 
-    public update(): void {
+    public update(_timestep: number = 1000.0 / ECS.TARGET_UPDATES_PER_SECOND): void {
         for (const system of this.systemOrder) {
             const systemEntities = this.systems.get(system);
             system.update(systemEntities!);
