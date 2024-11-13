@@ -11,7 +11,11 @@ export default defineConfig({
         globals: true,
         setupFiles: ['./setup-tests.js'],
         deps: {
-            inline: ['vitest-canvas-mock'],
+            optimizer: {
+                web: {
+                    include: ['vitest-canvas-mock']
+                }
+            }
         },
         // For this config, check https://github.com/vitest-dev/vitest/issues/740
         environmentOptions: {
